@@ -1,0 +1,22 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.adapterTargetName": "esp32",
+  "idf.customExtraPaths": "",
+  "idf.customExtraVars": {
+    "OPENOCD_SCRIPTS": "/opt/esp/tools/openocd-esp32/v0.12.0-esp32-20230419/openocd-esp32/share/openocd/scripts",
+    "ESP_ROM_ELF_DIR": "/opt/esp/tools/esp-rom-elfs/20230320/"
+  },
+  "idf.espIdfPath": "/opt/esp/idf",
+  "idf.openOcdConfigs": [
+    "board/esp32-wrover-kit-3.3v.cfg"
+  ],
+  "idf.pythonBinPath": "/opt/esp/python_env/idf5.2_py3.8_env/bin/python",
+  "idf.toolsPath": "/opt/esp",
+  "files.associations": {
+    "*.html": "html",
+    "esp_log.h": "c",
+    "freertos.h": "c",
+    "task.h": "c",
+    "stdio.h": "c"
+  }
+}
