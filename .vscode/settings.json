@@ -20,6 +20,8 @@
     "stdio.h": "c",
     "initializer_list": "cpp",
     "iterator": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "array": "cpp",
+    "string_view": "cpp"
   }
 }

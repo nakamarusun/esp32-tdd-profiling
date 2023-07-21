@@ -18,12 +18,21 @@
   #include <freertos/task.h>
   #include <freertos/timers.h>
 #elif defined(PROFILE_CPU_CYCLE)
+  #include <esp_timer.h>
   #include <esp_cpu.h>
   #include <soc/rtc.h>
+  #include <stdint.h>
 #endif
 
 int arr[DATA_SIZE];
-int64_t start_time = 0;
+uint64_t start_time = 0;
+
+#ifdef PROFILE_CPU_CYCLE
+// This is important to count the number of overflows. This is needed because
+// esp_cpu_get_cycle_count is only good for counting max uint32 cpu cycles.
+// This is approximately 26.8 seconds for 160MHz
+uint64_t start_time_micros = 0;
+#endif
 
 void start_profile() {
   #if defined(PROFILE_ESP_TIMER)
@@ -32,19 +41,22 @@ void start_profile() {
     start_time = xTaskGetTickCount();
   #elif defined(PROFILE_CPU_CYCLE)
     // start_time = cpu_hal_get_cycle_count();
+    start_time_micros = esp_timer_get_time();
     start_time = esp_cpu_get_cycle_count();
   #endif
 }
 
 void end_profile() {
   #if defined(PROFILE_ESP_TIMER)
-    int64_t execution_time = esp_timer_get_time() - start_time;
+    uint64_t execution_time = esp_timer_get_time() - start_time;
     ESP_LOGI("Profiling", "%.3fms", ((double)execution_time)/1000.0);
   #elif defined(PROFILE_FREERTOS_TICK)
     double execution_time = ((double)(xTaskGetTickCount() - start_time))/(double)configTICK_RATE_HZ;
     ESP_LOGI("Profiling", "%.3f", execution_time * 1000.0);
   #elif defined(PROFILE_CPU_CYCLE)
-    int64_t execution_clocks = esp_cpu_get_cycle_count() - start_time;
+    int overflows = (esp_timer_get_time() - start_time_micros) / UINT32_MAX;
+    uint64_t execution_clocks = (esp_cpu_get_cycle_count() - start_time) + UINT32_MAX * overflows;
+
     rtc_cpu_freq_config_t cpu_freq_config;
     rtc_clk_cpu_freq_get_config(&cpu_freq_config);
     double execution_time = ((double)execution_clocks)/((double)(cpu_freq_config.freq_mhz * MHZ));
