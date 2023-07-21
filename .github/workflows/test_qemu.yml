@@ -1,0 +1,21 @@
+name: QEMU test
+on: push
+jobs:
+  qemu_test:
+    name: Build and test
+    runs-on: ubuntu-20.04
+    # Container: espressif/idf:release-v5.0
+    # We don't use espressif's official image bacause it does not have QEMU and
+    # pytest is not installed.
+    # Solution: Create custom image
+    container: zimkal/qemu2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      - name: Build and test
+        shell: bash
+        run: |
+          cd test
+          idf.py build
+          pytest -s --target esp32 --embedded-services idf,qemu
