@@ -17,6 +17,9 @@
     "esp_log.h": "c",
     "freertos.h": "c",
     "task.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "initializer_list": "cpp",
+    "iterator": "cpp",
+    "algorithm": "cpp"
   }
 }
