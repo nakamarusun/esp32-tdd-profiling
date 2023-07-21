@@ -16,6 +16,7 @@ jobs:
       - name: Build and test
         shell: bash
         run: |
+          . /opt/esp/idf/export.sh
           cd test
           /opt/esp/idf/tools/idf.py build
           pytest -s --target esp32 --embedded-services idf,qemu
