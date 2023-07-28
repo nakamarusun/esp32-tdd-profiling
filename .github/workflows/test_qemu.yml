@@ -2,7 +2,7 @@ name: QEMU test
 on: push
 jobs:
   qemu_test:
-    name: Build and test
+    name: Build and test for ESP32 Qemu
     runs-on: ubuntu-20.04
     # Container: espressif/idf:release-v5.0
     # We don't use espressif's official image bacause it does not have QEMU and
@@ -20,3 +20,20 @@ jobs:
           cd test
           /opt/esp/idf/tools/idf.py build
           pytest -s --target esp32 --embedded-services idf,qemu
+  nrf_test:
+    strategy:
+      matrix:
+        board: [qemu_cortex_m3]
+
+    name: Build and test for QEMU
+    runs-on: ubuntu-20.04
+    container: nordicplayground/nrfconnect-sdk
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      
+      - name: Build and test
+        shell: bash
+        run: |
+          cd nrf
+          west twister -c -p ${{ matrix.board }} -T .

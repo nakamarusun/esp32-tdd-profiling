@@ -1,0 +1,20 @@
+# sample:
+#   description: Hello World sample, the simplest Zephyr
+#     application
+#   name: hello world
+# common:
+#   tags: introduction
+#   integration_platforms:
+#     - native_posix
+#   harness: console
+#   harness_config:
+#     type: one_line
+#     regex:
+#       - "Hello World! (.*)"
+tests:
+  sample.testing.ztest:
+    build_only: true
+    platform_allow: qemu_cortex_m3
+    integration_platforms:
+      - qemu_cortex_m3
+    tags: test_framework
