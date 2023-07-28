@@ -47,37 +47,37 @@ void validate_array(int a[], int n) {
 	}
 }
 
-ZTEST(profile_test, test_bubble_sort)
+ZTEST(profile_test, test_sort_bubble_sort)
 {
 	bubble_sort(arr, DATA_SIZE);
 	validate_array(arr, DATA_SIZE);
 }
 
-ZTEST(profile_test, test_insertion_sort)
+ZTEST(profile_test, test_sort_insertion_sort)
 {
 	insertion_sort(arr, DATA_SIZE);
 	validate_array(arr, DATA_SIZE);
 }
 
-ZTEST(profile_test, test_selection_sort)
+ZTEST(profile_test, test_sort_selection_sort)
 {
 	selection_sort(arr, DATA_SIZE);
 	validate_array(arr, DATA_SIZE);
 }
 
-ZTEST(profile_test, test_quick_sort)
+ZTEST(profile_test, test_sort_quick_sort)
 {
 	quick_sort(arr, DATA_SIZE);
 	validate_array(arr, DATA_SIZE);
 }
 
-ZTEST(profile_test, test_shaker_sort)
+ZTEST(profile_test, test_sort_shaker_sort)
 {
 	shaker_sort(arr, DATA_SIZE);
 	validate_array(arr, DATA_SIZE);
 }
 
-ZTEST(profile_test, test_merge_sort)
+ZTEST(profile_test, test_sort_merge_sort)
 {
 	merge_sort(arr, DATA_SIZE);
 	validate_array(arr, DATA_SIZE);
