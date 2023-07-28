@@ -36,4 +36,4 @@ jobs:
         shell: bash
         run: |
           cd nrf
-          west twister -c -p ${{ matrix.board }} -T .
+          west twister -vvp ${{ matrix.board }} -T .
