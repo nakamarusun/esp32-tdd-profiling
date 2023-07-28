@@ -25,9 +25,9 @@ jobs:
       matrix:
         board: [qemu_cortex_m3]
 
-    name: Build and test for QEMU
+    name: Build and test for ARM Cortex-M3 QEMU
     runs-on: ubuntu-20.04
-    container: nordicplayground/nrfconnect-sdk
+    container: nordicplayground/nrfconnect-sdk:v2.4-branch
     steps:
       - name: Checkout code
         uses: actions/checkout@master
