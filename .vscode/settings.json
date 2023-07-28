@@ -22,6 +22,8 @@
     "iterator": "cpp",
     "algorithm": "cpp",
     "array": "cpp",
-    "string_view": "cpp"
+    "string_view": "cpp",
+    "all.h": "c",
+    "xutility": "cpp"
   }
 }
