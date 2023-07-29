@@ -41,7 +41,7 @@ jobs:
       - name: Build and test
         shell: bash
         run: |
-	  apt update
-	  apt install qemu-system -y
+          apt update
+          apt install qemu-system -y
           cd nrf
           west twister -vvp ${{ matrix.board }} -T .
