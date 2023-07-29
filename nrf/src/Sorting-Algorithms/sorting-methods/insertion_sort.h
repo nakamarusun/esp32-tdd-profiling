@@ -11,9 +11,9 @@
  * Space: O(1)
  * Stable
  */ 
-void insertion_sort(int a[], int n) {
+void insertion_sort(ARR_TYPE a[], int n) {
     for (int i = 1; i < n; ++i) {
-        int cur = a[i];
+        ARR_TYPE cur = a[i];
         int j = i - 1;
         for (; j >= 0 && a[j] > cur; --j)
             a[j + 1] = a[j];

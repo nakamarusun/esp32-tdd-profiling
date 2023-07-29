@@ -3,7 +3,7 @@
 
 #include "../helper/utils.h"
 #include <algorithm>
-void merge_sort_DnC(int a[], int l, int r) {
+void merge_sort_DnC(ARR_TYPE a[], int l, int r) {
     if (l == r) return;
     int mid = (l + r) >> 1;
     merge_sort_DnC(a, l, mid);
@@ -19,7 +19,7 @@ void merge_sort_DnC(int a[], int l, int r) {
  * Space: O(n)
  * Not Stable (Can make it Stable)
  */
-void merge_sort(int a[], int n) {
+void merge_sort(ARR_TYPE a[], int n) {
     merge_sort_DnC(a, 0, n - 1);
 }
 

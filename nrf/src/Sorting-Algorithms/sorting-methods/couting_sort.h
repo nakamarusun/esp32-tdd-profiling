@@ -12,7 +12,7 @@ int __cnt[300000];
  * Space: O(k)
  * Not Stable (Can make it stable)
  */ 
-void couting_sort(int a[], int n) {
+void couting_sort(ARR_TYPE a[], int n) {
     if (n <= 0) return;
     for (int i = 0; i < n; ++i)
         ++__cnt[a[i]];

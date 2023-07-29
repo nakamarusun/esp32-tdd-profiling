@@ -13,14 +13,14 @@ int __L[300000];
  * Note: m = 0.43n
  * Not Stable
  */ 
-void flash_sort(int a[], int n) {
+void flash_sort(ARR_TYPE a[], int n) {
     if (n <= 1) return;
     int m = n * 0.43;
     if (m <= 2) m = 2;
     // int m = n;
     for (int i = 0; i < m; ++i)
         __L[i] = 0;
-    int Mx = a[0], Mn = a[0];
+    ARR_TYPE Mx = a[0], Mn = a[0];
     for (int i = 1; i < n; ++i) {
         if (Mx < a[i]) Mx = a[i];
         if (Mn > a[i]) Mn = a[i];

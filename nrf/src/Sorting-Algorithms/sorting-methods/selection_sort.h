@@ -11,7 +11,7 @@
  * Space: O(1)
  * Stable
  */ 
-void selection_sort(int a[], int n) {
+void selection_sort(ARR_TYPE a[], int n) {
     for (int i = 0; i < n - 1; ++i) {
         int cur_min = i;
         for (int j = i + 1; j < n; ++j)
@@ -29,7 +29,7 @@ void selection_sort(int a[], int n) {
  * Space: O(1)
  * Not Stable (Can make it Stable)
  */ 
-void selection_sort_optimize1(int a[], int n) {
+void selection_sort_optimize1(ARR_TYPE a[], int n) {
     int r = n;
     for (int i = 0; i < r - 1; ++i) {
         int cur_min = i;

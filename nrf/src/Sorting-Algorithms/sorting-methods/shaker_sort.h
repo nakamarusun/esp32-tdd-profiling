@@ -10,7 +10,7 @@
  * Space: O(1)
  * Stable
  */ 
-void shaker_sort(int a[], int n) {
+void shaker_sort(ARR_TYPE a[], int n) {
     int L = 0, R = n - 1;
     while (L < R) {
         for (int i = L; i < R; ++i)
@@ -32,7 +32,7 @@ void shaker_sort(int a[], int n) {
  * Space: O(1)
  * Stable
  */ 
-void shaker_sort_optimize1(int a[], int n) {
+void shaker_sort_optimize1(ARR_TYPE a[], int n) {
     bool stop = true;
     int L = 0, R = n - 1;
     while (L < R) {

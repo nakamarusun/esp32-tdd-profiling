@@ -2,7 +2,7 @@
 #define RADIX_SORT_HEADER
 
 #include "../helper/utils.h"
-void radix_sort_DnC(int a[], int level, int l, int r) {
+void radix_sort_DnC(ARR_TYPE a[], int level, int l, int r) {
     if (l == r || level < 0) return;
     int left = l, right = r;
     while (left <= right) {
@@ -28,7 +28,7 @@ void radix_sort_DnC(int a[], int level, int l, int r) {
  * Space: O(logk)
  * Not Stable (Can make it Stable)
  */ 
-void radix_sort(int a[], int n) {
+void radix_sort(ARR_TYPE a[], int n) {
     int level = 0;
     while ((1 << level) < n) ++level;
     radix_sort_DnC(a, level, 0, n - 1);

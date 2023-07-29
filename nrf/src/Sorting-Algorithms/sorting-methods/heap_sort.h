@@ -3,8 +3,8 @@
 
 #include "../helper/utils.h"
 //max heap
-void down_heap(int a[], int n, int i) {
-    int cur = a[i];
+void down_heap(ARR_TYPE a[], int n, int i) {
+    ARR_TYPE cur = a[i];
     while (i < n) {
         int child = (i << 1) | 1;
         if (child >= n)
@@ -26,7 +26,7 @@ void down_heap(int a[], int n, int i) {
  * Space: O(1)
  * Not Stable
  */ 
-void heap_sort(int a[], int n) {
+void heap_sort(ARR_TYPE a[], int n) {
     for (int i = n / 2 - 1; i >= 0; --i)
         down_heap(a, n, i);
     for (int i = n - 1; i > 0; --i) {

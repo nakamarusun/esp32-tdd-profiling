@@ -10,7 +10,7 @@
  * Worst Case: O(n^2)
  * Space: O(1)
  */ 
-void bubble_sort(int a[], int n) {
+void bubble_sort(ARR_TYPE a[], int n) {
     for (int j = n; j > 1; --j) 
         for (int i = 1; i < j; ++i)
             if (a[i - 1] > a[i]) 
@@ -25,7 +25,7 @@ void bubble_sort(int a[], int n) {
  * Space: O(1)
  * Stable
  */ 
-void bubble_sort_optimize1(int a[], int n) {
+void bubble_sort_optimize1(ARR_TYPE a[], int n) {
     for (int j = n; j > 1; --j) {
         bool stop = true;
         for (int i = 1; i < j; ++i)

@@ -2,9 +2,9 @@
 #define QUICK_SORT_HEADER
 
 #include "../helper/utils.h"
-void quick_sort_DnC(int a[], int l, int r) {
+void quick_sort_DnC(ARR_TYPE a[], int l, int r) {
     if (l == r) return;
-    int pivot = a[getRandom(l, r)];
+    ARR_TYPE pivot = a[getRandom(l, r)];
     int left = l, right = r;
     while (left <= right) {
         while (a[left] < pivot) ++left;
@@ -30,7 +30,7 @@ void quick_sort_DnC(int a[], int l, int r) {
  * Not Stable
  * Random Pivot
  */ 
-void quick_sort(int a[], int n) {
+void quick_sort(ARR_TYPE a[], int n) {
     quick_sort_DnC(a, 0, n - 1);
 }
 
